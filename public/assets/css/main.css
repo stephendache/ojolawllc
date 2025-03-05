@@ -1850,7 +1850,7 @@ textarea {
 
 .rr-btn2 {
   font-family: var(--rr-ff-heading);
-  color: var(--rr-heading-primary);
+  color: var(--rr-common-white);
   font-weight: var(--rr-fw-medium);
   font-size: 14px;
   line-height: var(--rr-lh-h5);
@@ -6139,7 +6139,7 @@ body .ui-tooltip {
 }
 
 .header__logo {
-  max-width: 188px;
+  max-width: 250px;
 }
 @media (max-width: 575px), only screen and (min-width: 576px) and (max-width: 767px) {
   .header__logo {

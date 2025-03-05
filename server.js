@@ -72,8 +72,6 @@ app.use((req, res) => {
 
 // Centralized error-handling middleware
 app.use((err, req, res, next) => {
-  console.error(`[Error]: ${err.message}`);
-
   res.status(err.status || 500).render("pages/404", {
       pageTitle: "Error | The Ojo Law Center, LLC",
       pageDescription: "Oops! Something went wrong. Please try again later.",
