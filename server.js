@@ -54,6 +54,7 @@ app.use('/sitemap.xml', express.static(path.join(__dirname, 'public', 'sitemap.x
 
 // Routes
 app.use("/", require("./routes/indexRoutes"));
+app.use("/get-tawk-id", require("./routes/tawkapi"));
 
 // Handle 404 errors (Page Not Found)
 app.use((req, res) => {
@@ -66,11 +67,17 @@ app.use((req, res) => {
 
 // Centralized error-handling middleware
 app.use((err, req, res, next) => {
-  console.error(`[Error]: ${err.message}`); // Log error details
+  console.error(`[Error]: ${err.message}`);
+
   res.status(err.status || 500).render("error", {
-    title: "Server Error",
-    status: err.status || 500,
-    // message: err.message || "An unexpected error occurred. Please try again later.",
+      pageTitle: "Error | The Ojo Law Center, LLC",
+      pageDescription: "Oops! Something went wrong. Please try again later.",
+      ogImage: "/images/og-default.jpg",
+      ogUrl: "https://www.ojolaw.com/error",
+      twitterImage: "/images/twitter-default.jpg",
+      canonicalUrl: "https://www.ojolaw.com/error",
+      status: err.status || 500,
+      message: err.message || "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
   });
 });
 

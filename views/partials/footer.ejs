@@ -6,17 +6,7 @@
          data-background="assets/imgs/footer/footer1-bg-img.png">
             <div class="container">
                 <div class="row mb-minus-40 footer-wrap">
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="footer__widget footer__widget-item-2 footer3__item-2 wow fadeInLeft animated" data-wow-delay=".3s">
-                            <div class="footer__widget-title footer__widget-title-2">
-                                <h4>The Ojo Law Center LLC</h4>
-                            </div>
-                            <div class="footer__content">
-                                <p>At The Ojo Law Center, LLC, we are dedicated to helping individuals, families, and businesses navigate the complexities of U.S. immigration law. Whether you are seeking a visa, green card, citizenship, or an investor pathway, our experienced legal team provides strategic, results-driven representation tailored to your needs.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="footer__widget footer__widget-item-1 wow fadeInLeft animated" data-wow-delay=".2s">
                             <span class="footer__widget-item-1-location"><img src="assets/imgs/footer/footer1-bg-location-img.png" alt="img not found"></span>
                             <div class="footer__logo mb-30">
@@ -26,7 +16,16 @@
                             </div>
                         </div>
                     </div>
-               
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__widget footer__widget-item-2 footer3__item-2 wow fadeInLeft animated" data-wow-delay=".3s">
+                            <div class="footer__widget-title footer__widget-title-2">
+                                <h4>The Ojo Law Center LLC</h4>
+                            </div>
+                            <div class="footer__content">
+                                <p>At The Ojo Law Center, LLC, we are dedicated to helping individuals, families, and businesses navigate the complexities of U.S. immigration law. Whether you are seeking a visa, green card, citizenship, or an investor pathway, our experienced legal team provides strategic, results-driven representation tailored to your needs.</p>
+                            </div>
+                        </div>
+                    </div>                               
     
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="footer__widget footer__widget-item-4 wow fadeInLeft animated mt-md-50 mt-sm-40 mt-xs-35" data-wow-delay=".5s">
@@ -91,17 +90,22 @@
     <script src="assets/js/main.js"></script>
 
     <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/67c84e8ad329131914692594/1ilj75jd3';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
+    <script type="text/javascript">
+        fetch('/get-tawk-id')
+        .then(response => response.json())
+        .then(data => {
+            if (data.tawkId) {
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/' + data.tawkId + '/default';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+            }
+        })
+        .catch(error => console.error('Error loading Tawk.to:', error));
+        </script>
+        
     <!--End of Tawk.to Script-->
     </body>
     
