@@ -21,7 +21,7 @@ app.use(morgan('combined')); // Logging HTTP requests
 
 // Rate Limiting (prevents abuse & improves security)
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
+  windowMs: 120 * 60 * 1000, // 2 hour
   max: 100, // Limit each IP to 100 requests per window
   message: "Too many requests from this IP, please try again later."
 });

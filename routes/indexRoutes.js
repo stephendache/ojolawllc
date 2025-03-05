@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const pagesController = require("../controllers/pagesController");
+const pagesController = require("../controllers/indexCtrl");
 
 // Define Routes
 router.get("/", pagesController.homePage);
