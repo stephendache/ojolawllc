@@ -58,10 +58,15 @@ app.use("/get-tawk-id", require("./routes/tawkapi"));
 
 // Handle 404 errors (Page Not Found)
 app.use((req, res) => {
-  res.status(404).render("error", {
-    title: "404 - Page Not Found",
-    status: 404,
-    message: "The page you are looking for does not exist.",
+  res.status(404).render("pages/404", {
+    pageTitle: "Error | The Ojo Law Center, LLC",
+    pageDescription: "Oops! Something went wrong. Please try again later.",
+    ogImage: "/images/og-default.jpg",
+    ogUrl: "https://www.ojolaw.com/error",
+    twitterImage: "/images/twitter-default.jpg",
+    canonicalUrl: "https://www.ojolaw.com/error",
+    status: err.status || 500,
+    message: err.message || "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
   });
 });
 
@@ -69,7 +74,7 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   console.error(`[Error]: ${err.message}`);
 
-  res.status(err.status || 500).render("error", {
+  res.status(err.status || 500).render("pages/404", {
       pageTitle: "Error | The Ojo Law Center, LLC",
       pageDescription: "Oops! Something went wrong. Please try again later.",
       ogImage: "/images/og-default.jpg",
